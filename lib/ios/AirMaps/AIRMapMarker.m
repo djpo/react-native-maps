@@ -216,8 +216,10 @@
     
     if (marker.onPress) marker.onPress(event);
     if (marker.map.onMarkerPress) marker.map.onMarkerPress(event);
-    
-    [marker.map selectAnnotation:marker animated:NO];
+
+    // [marker.map selectAnnotation:marker animated:NO];
+    // prevent overlapping markers from triggering onSelect multiple times with one press
+        // see https://github.com/airbnb/react-native-maps/issues/1353
 }
 
 - (void)hideCalloutView
